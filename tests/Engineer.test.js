@@ -10,5 +10,13 @@ describe("Enginner", () => {
       expect(engineer.role).toEqual("Engineer");
       expect(engineer.githubUserName).toEqual("Jared@Github");
     });
+
+    it("should throw an error if not provided email", () => {
+        const cb = () => new Engineer(12, "Jared", "");
+        const err = new Error("Email is required field");
+        expect(cb).toThrowError(err);
+    });
+   
+    
   });
 });

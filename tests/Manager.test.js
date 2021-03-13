@@ -1,5 +1,4 @@
 const Manager = require("../lib/Manager");
-const manager = require("../lib/Manager");
 
 describe("Manager", () => {
   describe("Initialization", () => {
@@ -11,5 +10,11 @@ describe("Manager", () => {
       expect(manager.role).toEqual("Manager");
       expect(manager.officeNumber).toEqual("123-456-7886");
     });
+
+    it("should throw an error if not provided Office phone number", () => {
+      const cb = () => new Manager(1, "Jared", "Jared@gmail.com", "Manager", "");
+      const err = new Error("Phone number is required field");
+        expect(cb).toThrowError(err);
+  });
   });
 });
