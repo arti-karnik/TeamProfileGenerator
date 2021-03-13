@@ -13,7 +13,6 @@ https://drive.google.com/file/d/1WqEmenJRO8G7jjCOMQUubo7erVyA1kwz/view
       <img src="./src/assets/images/SS3.png">
 </div>
 <br>
-
 <strong> Code Installation: </strong> <br>
 $ cd [path_to_save_codebase] <br>
 $ git clone https://github.com/arti-karnik/Javascript-Quizzy <br>
