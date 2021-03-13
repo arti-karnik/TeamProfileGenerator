@@ -7,9 +7,10 @@ Along with this, unit test are added for each part of code and ensure that it pa
 <br>
 https://drive.google.com/file/d/1WqEmenJRO8G7jjCOMQUubo7erVyA1kwz/view
 <div align="left">
-      <img src="./dist/assets/images/SS1.png">
-      <img src="./assets/images/SS2.png">
-      <img src="./assets/images/SS3.png">
+      <img src="./src/assets/images/SS1.png">
+      <img src="./src/assets/images/SS2.png">
+      <img src="./src/assets/images/SS3.png">
+      <img src="./src/assets/images/SS3.png">
 </div>
 <br>
 
