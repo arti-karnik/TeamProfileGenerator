@@ -3,6 +3,8 @@ const inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
 const intern = require("./lib/intern");
 const Manager = require("./lib/Manager");
+const fs = require("fs");
+
 var members = [];
 
 const employee = () => { 
@@ -69,10 +71,63 @@ inquirer.prompt([{
             member = new intern(response.Id, response.name, response.email, response.role, response.school)
         }
         members.push(member);
-        console.log(members);
-    if (response.add) {
+       // 
+    if (response.add == "Yes") {
         employee();
-    } 
+    } else {
+        console.log(members);
+        showInfo();
+    }
 })};
 
 employee();
+
+function showInfo() {
+    let newFile = fs.readFileSync("./dist/index.html");
+    fs.writeFileSync("./dist/Page.html", newFile, function(err){
+        if(err) throw err;
+    });
+    console.log("Page generated");
+    var cardHtml = "";
+
+    for (member of members) {
+        cardHtml = cardHtml + generateCard(member);
+    }
+    //console.log(cardHtml);
+
+    fs.appendFileSync("./dist/Page.html", cardHtml, err => { if (err) throw err;});
+
+    fs.appendFileSync("./dist/Page.html", "</div><main></body></html>", function (err){
+        if (err) throw err});
+}
+function generateCard(member) {
+    var other = "";
+    var otherInfo = "";
+
+    if (member.role == "Engineer") {
+        other = "Github";
+        otherInfo = member.getGithubUserName();
+
+    } else if (member.role == "Manager") {
+        other = "Office-Number";
+        otherInfo = member.getOfficeNumber();
+    } else if (member.role == "Intern") {
+        other = "School";
+        otherInfo = member.getSchool();
+    }
+    return `
+    <div class="col mb-4">
+    <div class="card" style="width: 18rem;">
+        <div class="card-title">
+            <div class="name"> ${member.getName()}</div> 
+            <div class="role"> ${member.getRole()}</div> 
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong> Id: </strong><span id="memberId">${member.getId()} </span></li>
+          <li class="list-group-item"><strong>Email: </strong> <span id="memberEmail"> ${member.getEmail()}</span> </li>
+          <li class="list-group-item"><strong> <span id="memberOther">${other}: </span> </strong> <span id="memberOtherInfo"> ${otherInfo}</span></li>
+        </ul>
+      </div>
+</div>
+`
+}
