@@ -1,5 +1,4 @@
 const Employee = require("../lib/Employee");
-const validator = require('../src/validator');
 
 describe("Employee", () => {
   describe("Initialization", () => {

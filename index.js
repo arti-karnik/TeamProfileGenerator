@@ -4,7 +4,6 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const fs = require("fs");
-const validator = require('./src/validator');
 
 var members = [];
 
@@ -74,7 +73,7 @@ inquirer.prompt([{
     type: "input",
     name: "githubUserName",
     message: "Please Enter Github username: ",
-    validate: validator.checkName
+    validate: checkName
     },
     {
         when: input => {
@@ -83,7 +82,7 @@ inquirer.prompt([{
         type: "input",
         name: "school",
         message: "Please Enter School name: ",
-        validate: validator.checkName
+        validate: checkName
     },
     {
         when: input => {
@@ -126,8 +125,8 @@ employee();
 
 
 function showInfo() {
-    let newFile = fs.readFileSync("./dist/index.html");
-    fs.writeFileSync("./dist/Page.html", newFile, function(err){
+    let newFile = fs.readFileSync("./src/index.html");
+    fs.writeFileSync("./src/Page.html", newFile, function(err){
         if(err) throw err;
     });
     console.log("Page generated");
@@ -136,9 +135,9 @@ function showInfo() {
     for (member of members) {
         cardHtml = cardHtml + generateCard(member);
     }
-    fs.appendFileSync("./dist/Page.html", cardHtml, err => { if (err) throw err;});
+    fs.appendFileSync("./src/Page.html", cardHtml, err => { if (err) throw err;});
 
-    fs.appendFileSync("./dist/Page.html", "</div><main></body></html>", function (err){
+    fs.appendFileSync("./src/Page.html", "</div><main></body></html>", function (err){
         if (err) throw err});
 }
 function generateCard(member) {
