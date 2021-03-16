@@ -21,7 +21,7 @@ $ node index.js
 to run test cases - $ npm run test
 
 <strong> Github Profile: </strong> <br>
-
+https://github.com/arti-karnik/ <br>
 <strong> Code-base: </strong> <br>
 https://github.com/arti-karnik/TeamProfileGenerator
 
