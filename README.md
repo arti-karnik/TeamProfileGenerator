@@ -15,10 +15,10 @@ https://drive.google.com/file/d/1WqEmenJRO8G7jjCOMQUubo7erVyA1kwz/view
 <br>
 <strong> Code Installation: </strong> <br>
 $ cd [path_to_save_codebase] <br>
-$ git clone https://github.com/arti-karnik/Javascript-Quizzy <br>
+$ git clone https://github.com/arti-karnik/TeamProfileGenerator <br>
 $ npm i 
 $ node index.js 
-to run test cases type npm t
+to run test cases - $ npm run test
 
 <strong> Github Profile: </strong> <br>
 
